@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient: MyString
+  string: MyString
+  paying_company: MyString
+  string: MyString
+  user: one
+
+two:
+  patient: MyString
+  string: MyString
+  paying_company: MyString
+  string: MyString
+  user: two
