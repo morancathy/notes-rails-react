@@ -56,4 +56,3 @@ production:
   database: backend_production
   username: user
   password: password
-  # password: <%= ENV['BACKEND_DATABASE_PASSWORD'] %>
