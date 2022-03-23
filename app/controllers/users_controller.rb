@@ -1,3 +1,6 @@
+require 'uri'
+require 'net/http'
+
 class UsersController < ApplicationController
   # only use authorized if autologin route
   before_action :authorized, only: [:auto_login]
@@ -31,14 +34,14 @@ class UsersController < ApplicationController
     params = {
       :user_id => decoded_token   #matches what logged_in user method is checking for in applicaton_controller
     }
-   
+    #https://ruby-doc.org/stdlib-3.1.1/libdoc/net/http/rdoc/Net/HTTP.html
     req = Net::HTTP::Get.new(uri)
     req.form_data = params
     req['Authorization'] = "Bearer #{ENV["CARDSCAN_AI_KEY"]}"
     res = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => uri.scheme == 'https' ) { |http|
       http.request(req) 
     }
-
+    
     if res.msg == "OK"
       render json: {
         res: res,
