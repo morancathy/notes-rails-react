@@ -7,10 +7,11 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'  #anybody can make a request. Have to change once have front end URL
+    origins ['localhost:3000', 'localhost:4000'] # using '*' anybody can make a request. Have to change once have front end URL
 
     resource '*',
       headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+      methods: [:get, :post, :put, :patch, :delete, :options, :head],
+      credentials:true
   end
 end
