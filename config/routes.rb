@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   #controller called users, function that handles that request is called 'login'
   #autologin tests the login
   resource :users, only: [:create]
-  post "/login", to: "users#login"
-  get "/auto_login", to: "users#auto_login"
+  get "/auto_login",        to: "users#auto_login"
+  post "/login",            to: "users#login"
 end
