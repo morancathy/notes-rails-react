@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resource :users, only: [:create]
   get "/auto_login",        to: "users#auto_login"
   post "/login",            to: "users#login"
+  post "/cardscan_session", to: "users#cardscan_session"
 end
