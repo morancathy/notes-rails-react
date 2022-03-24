@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   #autologin tests the login
   resource :users, only: [:create]
   get "/auto_login",        to: "users#auto_login"
+  get "/cards/:card_id",    to: "users#card"
   post "/login",            to: "users#login"
   post "/cardscan_session", to: "users#cardscan_session"
 end
