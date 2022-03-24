@@ -58,6 +58,34 @@ class UsersController < ApplicationController
   def auto_login
     render json: @user
   end
+
+  def card
+    url = URI("https://sandbox.cardscan.ai/v1/cards/#{params[:card_id]}")
+
+    https = Net::HTTP.new(url.host, url.port)
+    https.use_ssl = true
+
+    request = Net::HTTP::Get.new(url)
+    request["Content-Type"] = "application/json"
+    request["Authorization"] = "Bearer #{ENV["CARDSCAN_AI_KEY"]}"
+
+    response = https.request(request)
+
+    if response.msg == "OK"
+      render json: {
+        response: response,
+        status: response.code,
+        message: response.message,
+        card: JSON.parse(response.body)
+      }
+    else
+      render json: {
+        response: response,
+        status: response.code,
+        error: response.message,
+      }
+    end
+  end
   
   private
   
