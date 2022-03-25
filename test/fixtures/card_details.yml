@@ -1,0 +1,61 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  member_name: MyString
+  string: MyString
+  member_number: MyString
+  string: MyString
+  payer_name: MyString
+  string: MyString
+  plan_id: MyString
+  string: MyString
+  plan_name: MyString
+  string: MyString
+  rx_bin: MyString
+  string: MyString
+  rx_pcn: MyString
+  string: MyString
+  rx_group: MyString
+  string: MyString
+  dependents: MyString
+  string: MyString
+  start_date: MyString
+  string: MyString
+  card_specific_id: MyString
+  string: MyString
+  group_number: MyString
+  string: MyString
+  client_name: MyString
+  string: MyString
+  user: MyString
+  references: MyString
+
+two:
+  member_name: MyString
+  string: MyString
+  member_number: MyString
+  string: MyString
+  payer_name: MyString
+  string: MyString
+  plan_id: MyString
+  string: MyString
+  plan_name: MyString
+  string: MyString
+  rx_bin: MyString
+  string: MyString
+  rx_pcn: MyString
+  string: MyString
+  rx_group: MyString
+  string: MyString
+  dependents: MyString
+  string: MyString
+  start_date: MyString
+  string: MyString
+  card_specific_id: MyString
+  string: MyString
+  group_number: MyString
+  string: MyString
+  client_name: MyString
+  string: MyString
+  user: MyString
+  references: MyString

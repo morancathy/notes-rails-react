@@ -10,14 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_21_010656) do
+ActiveRecord::Schema.define(version: 2022_03_25_132409) do
 
-  create_table "scanned_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "patient"
-    t.string "paying_company"
+  create_table "card_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "member_name"
+    t.string "member_number"
+    t.string "payer_name"
+    t.string "plan_id"
+    t.string "plan_name"
+    t.string "rx_bin"
+    t.string "rx_pcn"
+    t.string "rx_group"
+    t.string "dependents"
+    t.string "start_date"
+    t.string "card_specific_id"
+    t.string "group_number"
+    t.string "client_name"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_card_details_on_user_id"
+  end
+
+  create_table "scanned_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "member_name", limit: 40
+    t.string "member_number", limit: 40
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "payer_name", limit: 40
+    t.string "plan_id", limit: 40
+    t.string "plan_name", limit: 40
+    t.string "rx_bin", limit: 40
+    t.string "rx_pcn", limit: 40
+    t.string "rx_group", limit: 40
+    t.string "dependents", limit: 40
+    t.string "start_date", limit: 40
+    t.string "card_specific_id", limit: 40
+    t.string "group_number", limit: 40
+    t.string "client_name", limit: 40
     t.index ["user_id"], name: "index_scanned_cards_on_user_id"
   end
 
@@ -29,5 +60,6 @@ ActiveRecord::Schema.define(version: 2022_03_21_010656) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "card_details", "users"
   add_foreign_key "scanned_cards", "users"
 end
