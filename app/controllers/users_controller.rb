@@ -45,6 +45,7 @@ class UsersController < ApplicationController
     if res.msg == "OK"
       render json: {
         res: res,
+        msg: res.msg,
         token: JSON.parse(res.body)
       }
     else
@@ -82,6 +83,7 @@ class UsersController < ApplicationController
       render json: {
         response: response,
         status: response.code,
+        message: response.message,
         error: response.message,
       }
     end
