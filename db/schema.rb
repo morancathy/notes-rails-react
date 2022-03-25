@@ -33,22 +33,11 @@ ActiveRecord::Schema.define(version: 2022_03_25_132409) do
   end
 
   create_table "scanned_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "member_name", limit: 40
-    t.string "member_number", limit: 40
+    t.string "patient"
+    t.string "paying_company"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "payer_name", limit: 40
-    t.string "plan_id", limit: 40
-    t.string "plan_name", limit: 40
-    t.string "rx_bin", limit: 40
-    t.string "rx_pcn", limit: 40
-    t.string "rx_group", limit: 40
-    t.string "dependents", limit: 40
-    t.string "start_date", limit: 40
-    t.string "card_specific_id", limit: 40
-    t.string "group_number", limit: 40
-    t.string "client_name", limit: 40
     t.index ["user_id"], name: "index_scanned_cards_on_user_id"
   end
 
