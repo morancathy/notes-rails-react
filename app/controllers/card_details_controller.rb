@@ -1,6 +1,6 @@
 class CardDetailsController < ApplicationController
   before_action :set_card_detail, only: [:show, :update, :destroy]
-  # before_action :authorized
+  before_action :authorized
 
   # GET /card_details
   def index
@@ -49,6 +49,6 @@ class CardDetailsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def card_detail_params
-      params.require(:card_detail).permit(:member_name, :string, :member_number, :string, :payer_name, :string, :plan_id, :string, :plan_name, :string, :rx_bin, :string, :rx_pcn, :string, :rx_group, :string, :dependents, :string, :start_date, :string, :card_specific_id, :string, :group_number, :string, :client_name, :string, :user, :references)
+      params.require(:card_detail).permit(:member_name, :member_number, :payer_name, :plan_id, :plan_name, :rx_bin, :rx_pcn, :rx_group, :dependents, :start_date, :card_specific_id, :group_number, :client_name, :user, :references)
     end
 end
